@@ -1,0 +1,220 @@
+<html>
+<meta charset="utf-8"/>
+<head>
+  <title> Exercicio 14 </title>
+</head>
+
+<body>
+  <p> Crie um objeto que possua uma propriedade números, do tipo array. Esse objeto deve possuir métodos:
+    <ul>
+      <li>que adicione um número a propriedade números;</li>
+      <li>que receba um número por parâmetro e verifique se ele está presente ou não na propriedade números;</li>
+      <li>que remova um número já existente ou alerte caso o número não esteja presente na propriedade números;</li>
+      <li>que retorne os números positivos existentes na propriedade números;</li>
+      <li>que retorne os números negativos existentes na propriedade números;</li>
+      <li>que retorne os números pares existentes na propriedade números;</li>
+      <li>que retorne os números impares existentes na propriedade números;</li>
+      <li>que retorne a soma dos números existentes na propriedade números;</li>
+      <li><b>Observação:</b> Não deve ser possível adicionar valores não números na propriedade números.</li>
+    </ul>
+  </p>
+
+  <button onclick="executaFuncao(9)"> Exibe array </button>
+
+  <button onclick="executaFuncao(1)"> Adiciona um Numero </button>
+  <button onclick="executaFuncao(2)"> Verifica se está presente </button>
+  <button onclick="executaFuncao(3)"> Remove um Numero </button>
+  <button onclick="executaFuncao(4)"> Numeros positivos </button>
+  <button onclick="executaFuncao(5)"> Numeros negativos </button>
+  <button onclick="executaFuncao(6)"> Numeros pares </button>
+  <button onclick="executaFuncao(7)"> Numeros impares </button>
+  <button onclick="executaFuncao(8)"> Soma numeros </button>
+
+  <h2> Array Total</h2>
+  <p id="arrayAtual"></p>
+
+  <h2> Resultado da Operação </h2>
+  <p id="arrayTxt"></p>
+
+  <script>
+  var num;
+  var objeto = {
+    numeros: [],
+
+    //que adicione um número a propriedade números
+    adicionaNumero: function(num) {
+      objeto.numeros.push(num);
+    },
+
+    //que receba um número por parâmetro e verifique se ele está presente ou não na propriedade números
+    verificaNumero: function(num){
+      if(objeto.numeros.indexOf(num) != -1){
+        return true; //esta presente
+      }else{
+        return false; //nao esta presente
+      }
+    },
+
+    //que remova um número já existente ou alerte caso o número não esteja presente na propriedade números
+    removeNumero: function(num){
+      var removido = 0;
+
+      while(objeto.verificaNumero(num)){
+        objeto.numeros.splice(objeto.numeros.indexOf(num), 1);
+        removido++;
+      }
+      document.getElementById("arrayTxt").innerHTML = "Todas as " +removido+ " ocorrência(s) de " +num+ " foram removidas com sucesso.";
+      if(removido == 0){
+        document.getElementById("arrayTxt").innerHTML ="O numero " +num+ " não esta presente no array.";
+      }
+    },
+
+    //que retorne os números positivos existentes na propriedade números
+    numerosPositivos: function(){
+      var positivos = [];
+
+      for(var i = 0; i < objeto.numeros.length; i++){
+        if(objeto.numeros[i] >= 0){
+          positivos.push(objeto.numeros[i]);
+        }
+      }
+      return positivos;
+    },
+
+    //que retorne os números negativos existentes na propriedade números
+    numerosNegativos: function(){
+      var negativos = [];
+
+      for(var i = 0; i < objeto.numeros.length; i++){
+        if(objeto.numeros[i] < 0){
+          negativos.push(objeto.numeros[i]);
+        }
+      }
+      return negativos;
+    },
+
+    //que retorne os números pares existentes na propriedade números
+    numerosPares: function()    {
+      var pares = [];
+
+      for(var i = 0; i < objeto.numeros.length; i++){
+        if((objeto.numeros[i] % 2) == 0){
+          pares.push(objeto.numeros[i]);
+        }
+      }
+      return pares;
+    },
+
+    //que retorne os números impares existentes na propriedade números
+    numerosImpares: function(){
+      var impares = [];
+
+      for(var i = 0; i < objeto.numeros.length; i++){
+        if((objeto.numeros[i] % 2) != 0){
+          impares.push(objeto.numeros[i]);
+        }
+      }
+      return impares;
+    },
+
+    //que retorne a soma dos números existentes na propriedade números
+    somaNumeros: function(){
+      var soma = 0;
+
+      for(var i = 0; i < objeto.numeros.length; i++){
+        soma += parseInt(objeto.numeros[i]);
+      }
+      return soma;
+    }
+  };
+
+  function exibeArray(){
+    if(objeto.numeros.toString() == ""){
+      document.getElementById("arrayAtual").innerHTML = "Array vazio";
+    }else{
+      objeto.numeros.toString();
+      document.getElementById("arrayAtual").innerHTML = objeto.numeros;
+    }
+  }
+
+  function exibeArrayResultado(array){
+    if(array.toString() == ""){
+      document.getElementById("arrayTxt").innerHTML = "Array vazio";
+    }else{
+      array.toString();
+      document.getElementById("arrayTxt").innerHTML = array;
+    }
+  }
+
+  function executaFuncao(opcao){
+    var array = [];
+
+    switch (opcao) {
+      case 1:
+      do{
+        num = prompt("Informe o número a ser adicionado: ");
+      }while(isNaN(num) === true || num == "") //não é um número
+
+      objeto.adicionaNumero(num);
+      exibeArray();
+      document.getElementById("arrayTxt").innerHTML = "O numero " +num+" foi adicionado com sucesso ao array.";
+      break;
+
+      case 2:
+      var txt;
+
+      do{
+        num = prompt("Informe o número a ser verificado: ");
+      }while(isNaN(num) === true || num == "") //não é um número
+
+      if(objeto.verificaNumero(num)){
+        txt = "O número " +num+ " está presente no array.";
+      }else{
+        txt = "O número " +num+ " NÃO está presente no array.";
+      }
+      document.getElementById("arrayTxt").innerHTML = txt;
+      break;
+
+      case 3:
+      do{
+        num = prompt("Informe o número a ser removido: ");
+      }while(isNaN(num) === true || num == ""); //não é um número
+
+      objeto.removeNumero(num);
+      exibeArray();
+      break;
+
+      case 4:
+      array = objeto.numerosPositivos();
+      exibeArrayResultado(array);
+      break;
+
+      case 5:
+      array = objeto.numerosNegativos();
+      exibeArrayResultado(array);
+      break;
+
+      case 6:
+      array = objeto.numerosPares();
+      exibeArrayResultado(array);
+      break;
+
+      case 7:
+      array = objeto.numerosImpares();
+      exibeArrayResultado(array);
+      break;
+
+      case 8:
+      var total = objeto.somaNumeros();
+      total.toString();
+      document.getElementById("arrayTxt").innerHTML = total;
+      break;
+
+      case 9:
+      exibeArray();
+      break;
+    }
+  }
+  </script>
+</body>
+</html>

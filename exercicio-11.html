@@ -1,0 +1,42 @@
+<html>
+<meta charset="utf-8"/>
+<head>
+  <title> Exercicio 11 </title>
+</head>
+
+<body>
+  <p> Escreva uma função que receba o <b>array</b> do exercício anterior e alerte a quantidade de elementos do array que são <b>números negativos</b>. </p>
+
+  <script>
+  var array = [];
+
+  adicionaArray();
+  alert("Os valores foram adicionados no array.");
+  alert("Existem " +verificaNegativos(array)+ " elementos negativos no array.");
+
+  function adicionaArray(){
+    for(var i = 0; i < 4; i++){
+      num = parseInt(prompt("Digite o "+(i+1)+ " número:"));
+      array.push(num);
+    }
+  }
+
+  function imprimeArray(){
+    for(var i = 0; i < array.length; i++){
+      alert("Valor "+(i+1)+ " é: " +array[i]);
+    }
+  }
+
+  function verificaNegativos(array){
+    var qtde = 0;
+
+    for(var i = 0; i < array.length; i++){
+      if(array[i] < 0){
+        qtde++;
+      }
+    }
+    return qtde;
+  }
+  </script>
+</body>
+</html>

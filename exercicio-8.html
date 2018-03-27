@@ -1,0 +1,71 @@
+<html>
+<meta charset="utf-8"/>
+<head>
+  <title> Exercicio 8 </title>
+</head>
+
+<body>
+  <p> Escreva uma função que leia o código de origem de um produto, via prompt, e imprima na tela a região de sua procedência conforme a tabela abaixo:
+
+    <ul style="list-style-type:disc">
+      <li>Código 1: Sul</li>
+      <li>Código 2: Norte</li>
+      <li>Código 3: Leste</li>
+      <li>Código 4: Oeste</li>
+      <li>Código 5 ou 6: Nordeste</li>
+      <li>Código 7, 8 ou 9: Sudeste</li>
+      <li>Código 10: Centro-Oeste</li>
+      <li>Código 11: Noroeste</li>
+      <li>Observação: Caso o código não seja nenhum dos especificados o produto deve ser encarado como Importado. </li>
+    </ul> </p>
+
+    <script>
+    var cod = parseInt(prompt("Informe o código de origem do produto: "));
+
+    verificaCodigo(cod);
+
+    function verificaCodigo(cod){
+      var procede;
+
+      switch (cod) {
+        case 1:
+        procede = "Produto com procedência da região Sul.";
+        break;
+
+        case 2:
+        procede = "Produto com procedência da região Norte.";
+        break;
+
+        case 3:
+        procede = "Produto com procedência da região Leste.";
+        break;
+
+        case 4:
+        procede = "Produto com procedência da região Oeste.";
+        break;
+
+        case 5:
+        case 6:
+        procede = "Produto com procedência da região Nordeste.";
+        break;
+
+        case 7:
+        case 8:
+        case 9:
+        procede = "Produto com procedência da região Sudeste.";
+        break;
+
+        case 10:
+        procede = "Produto com procedência da região Centro-Oeste.";
+        break;
+
+        case 11:
+        procede = "Produto com procedência da região Noroeste.";
+        break;
+        default: procede = "Produto Importado.";
+      }
+      alert(procede);
+    }
+    </script>
+  </body>
+  </html>

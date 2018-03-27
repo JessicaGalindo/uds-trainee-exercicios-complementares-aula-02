@@ -1,0 +1,33 @@
+<html>
+<meta charset="utf-8"/>
+<head>
+  <title> Exercicio 10 </title>
+</head>
+
+<body>
+  <p> Escreva uma função que leia <b>10 valores numéricos</b>, via input, e armazene-os num <b>array</b>. </p>
+
+  <button onclick="imprimeArray(arrayValores)"> Exibir Array </button>
+
+  <script>
+  var arrayValores = [];
+
+  arrayValores = adicionaArray(arrayValores);
+  alert("Os valores foram adicionados no array.")
+
+  function adicionaArray(array){
+    for(var i = 0; i < 4; i++){
+      num = prompt("Digite o "+(i+1)+ " número:");
+      array.push(num);
+    }
+    return array;
+  }
+
+  function imprimeArray(array){
+    for(var i = 0; i < array.length; i++){
+      alert("Valor "+(i+1)+ " é: " +array[i]);
+    }
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<!-- VERIFICAR SE É INTEIRO, NÃO SÓ NUMERO !!! -->
+<head>
+  <meta charset="utf-8">
+  <title> Exercicio 4 </title>
+</head>
+<body>
+  <p> Escreva uma função que receba um parâmetro e informe se o mesmo é ou não um número inteiro. </p>
+
+  <script>
+  var num = prompt("Informe um parâmetro:");
+
+  verificaInteiro(num);
+
+  function verificaInteiro(num){
+    if (!isNaN(num) === true) {
+      alert("O parâmetro passado é um Número!");
+    }else{
+      alert("O parâmetro passado NÃO é um Número!");
+    }
+  }
+  </script>
+</body>
+</html>

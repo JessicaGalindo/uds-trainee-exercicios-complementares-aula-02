@@ -1,0 +1,28 @@
+<html>
+<meta charset="utf-8"/>
+<head>
+  <title> Exercicio 7 </title>
+</head>
+
+<body>
+  <p> Escreva uma função para ler um valor, via prompt, e alertar se é <b>positivo ou negativo</b>. Considere o valor zero como positivo. </p>
+
+  <script>
+  var valor = prompt("Informe um valor: ");
+
+  positivoNegativo(valor);
+
+  function positivoNegativo(valor){
+    if (!isNaN(valor) === true) { //é um numero
+       if(valor >= 0){
+         alert("O valor informado é um Número Positivo!");
+       }else{
+         alert("O valor informado é um Número Negativo!");
+       }
+    }else{
+      alert("O valor informado NÃO é um número!")
+    }
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+<meta charset="utf-8"/>
+<head>
+  <title> Exercicio 12 </title>
+</head>
+
+<body>
+  <p> Para cada conjunto de valores abaixo, escreva o código, usando laço(s), que preencha um array com os valores:
+    <ul>
+      <li>10 9 8 7 6 5 4 3 2 1</li>
+      <li>0 1 4 9 16 25 36 49 64 81 100</li>
+      <li>1 2 3 4 5 10 20 30 40 50</li>
+      <li>3 4 7 12 19 28 39 52 67 84</li>
+    </ul>
+  </p>
+
+  <div>
+    <button onclick="executaConjunto(1)"> Conjunto 1 </button>
+    <button onclick="executaConjunto(2)"> Conjunto 2 </button>
+    <button onclick="executaConjunto(3)"> Conjunto 3 </button>
+    <button onclick="executaConjunto(4)"> Conjunto 4 </button>
+  </div>
+
+  <h2> Resultado </h2>
+
+  <p id="arrayTxt"></p>
+
+  <script>
+  function executaConjunto(num){
+    var aux = parseInt(num);
+    var array1 = [], array2 = [], array3 = [], array4 = [];
+
+    switch (aux) {
+      case 1:
+      array1 = conjunto1(array1);
+      array1.toString();
+      document.getElementById("arrayTxt").innerHTML = array1;
+      break;
+
+      case 2:
+      array2 = conjunto2(array2);
+      array2.toString();
+      document.getElementById("arrayTxt").innerHTML = array2;
+      break;
+
+      case 3:
+      array3 = conjunto3(array3);
+      array3.toString();
+      document.getElementById("arrayTxt").innerHTML = array3;
+      break;
+
+      case 4:
+      array4 = conjunto4(array4);
+      array4.toString();
+      document.getElementById("arrayTxt").innerHTML = array4;
+      break;
+    }
+  }
+
+  function conjunto1(array){
+    for(var i = 10; i > 0; i--){
+      array.push(i);
+    }
+    return array;
+  }
+
+  function conjunto2(array){
+    var num;
+
+    for(var i = 0; i <= 10; i++){
+      num = i*i;
+      array.push(num);
+    }
+    return array;
+  }
+
+  function conjunto3(array){
+    for(var i = 1; i <= 5; i++){
+      array.push(i);
+    }
+    for(var i = 10; i <= 50; i += 10){
+      array.push(i);
+    }
+    return array;
+  }
+
+  function conjunto4(array){
+    var somaImpar = 3;
+
+    array.push(somaImpar);
+    for(var i = 1; i < 10; i++){
+      somaImpar += (i * 2) - 1;
+      array.push(somaImpar);
+    }
+    return array;
+  }
+  </script>
+</body>
+</html>
